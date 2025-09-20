@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Soul Reaper Saga</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="assets/video/bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">⚔️ Soul Reaper Saga</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="captains.html">Captains</a>
+      <a href="missions.html">Missions</a>
+      <a href="rewards.html">Rewards</a>
+      <a href="battle-log.html">Battle Log</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Aizen Profile -->
+  <section class="hero">
+    <div class="hero-profile">
+      <img src="assets/images/aizen.jpg" alt="Aizen" class="avatar">
+      <h3>Aizen</h3>
+    </div>
+    <div class="hero-content">
+      <h1>Welcome, Aizen</h1>
+      <p>You stand against the Captains of the Soul Society.<br>
+         Defeat them one by one and ascend beyond Band 7.5.</p>
+      <button class="btn start-btn" onclick="startSaga()">⚔️ Begin the Conquest</button>
+    </div>
+  </section>
+
+  <!-- Progress Overview -->
+  <section class="dashboard">
+    <h2>Your Current Power</h2>
+    <div class="progress-grid">
+      <div class="progress-card" id="listening-card">
+        <h3>🎧 Listening — Ukitake</h3>
+        <div class="progress-bar"><span style="width:40%"></span></div>
+        <p>Current: Band 6.0</p>
+      </div>
+      <div class="progress-card" id="reading-card">
+        <h3>📖 Reading — Unohana</h3>
+        <div class="progress-bar"><span style="width:35%"></span></div>
+        <p>Current: Band 5.5</p>
+      </div>
+      <div class="progress-card" id="writing-card">
+        <h3>✍️ Writing — Komamura & Kyōraku</h3>
+        <div class="progress-bar"><span style="width:30%"></span></div>
+        <p>Current: Band 6.0</p>
+      </div>
+      <div class="progress-card" id="speaking-card">
+        <h3>🗣️ Speaking — Gin, Soi Fon, Hitsugaya</h3>
+        <div class="progress-bar"><span style="width:45%"></span></div>
+        <p>Current: Band 6.0-6.5</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rewards Preview -->
+  <section class="rewards-preview">
+    <h2>Victories & Rewards</h2>
+    <div class="reward-grid">
+      <div class="reward-card unlocked glow">🎖️ First Captain Defeated</div>
+      <div class="reward-card epic">🏆 Band 7 Breakthrough</div>
+      <div class="reward-card legendary">👑 Seireitei Conquered — 7.5+</div>
+    </div>
+    <a href="rewards.html" class="btn reward-btn">View All Rewards →</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Soul Reaper Saga | Aizen’s Path to Mastery</p>
+  </footer>
+
+</body>
+</html>

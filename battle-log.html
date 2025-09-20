@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle Log – Soul Reaper Saga</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme">
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">⚔ Soul Reaper Saga</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="captains.html">Captains</a>
+      <a href="missions.html">Missions</a>
+      <a href="rewards.html">Rewards</a>
+      <a href="battle-log.html" class="active">Battle Log</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>📜 Battle Log</h1>
+      <p>Every clash with a Captain. Every victory. Every wound. This is your record, Aizen.</p>
+    </div>
+  </section>
+
+  <!-- Battle Log Timeline -->
+  <section class="battle-log">
+    <h2>Past Battles</h2>
+    <div class="log-container">
+
+      <!-- Example Log Entry -->
+      <div class="log-entry">
+        <div class="log-date">2025-09-18</div>
+        <div class="log-content">
+          <h3>Clash with Unohana (Reading)</h3>
+          <p>You struggled with Passage 2, skimming too slowly. Unohana’s calm blade cut deep, exposing weakness. Yet you learned new scanning drills.</p>
+          <blockquote>Unohana: “Mercy is not for you, Aizen. Until you read with precision, I will remain.”</blockquote>
+        </div>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-date">2025-09-17</div>
+        <div class="log-content">
+          <h3>Encounter with Ukitake (Listening)</h3>
+          <p>Completed Section 3, but distractions struck. You misheard keywords. Still, resilience forged clarity. +2 correct answers compared to last battle.</p>
+          <blockquote>Ukitake: “Even in silence, the world speaks. Will you learn to listen, Aizen?”</blockquote>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Add New Battle Log -->
+  <section class="add-log">
+    <h2>✍ Write New Entry</h2>
+    <form id="logForm">
+      <label for="log-date">Date</label>
+      <input type="date" id="log-date" required>
+
+      <label for="log-title">Battle Title</label>
+      <input type="text" id="log-title" placeholder="e.g. Duel with Kyōraku (Writing Task 2)" required>
+
+      <label for="log-text">Battle Details</label>
+      <textarea id="log-text" rows="5" placeholder="Describe today’s training, progress, or defeat..." required></textarea>
+
+      <button type="submit" class="btn">Add Entry</button>
+    </form>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
