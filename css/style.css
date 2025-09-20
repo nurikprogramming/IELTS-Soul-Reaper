@@ -1,0 +1,1319 @@
+/* === GLOBAL RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dark-theme {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0a0a0f, #1a1a2e);
+  color: #e0e0e0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === NAVBAR === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 2px solid #6419e6;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a855f7;
+  text-shadow: 0 0 8px #9333ea, 0 0 20px #5b21b6;
+}
+
+.navbar nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #e0e0e0;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: #a855f7;
+  text-shadow: 0 0 8px #9333ea, 0 0 20px #5b21b6;
+}
+
+/* === HERO SECTION === */
+.hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('../assets/images/bleach-bg.jpg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 0 0 15px #9333ea, 0 0 30px #5b21b6;
+  animation: pulse 3s infinite;
+}
+
+.hero-content p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: #d1d5db;
+}
+
+.btn {
+  background: linear-gradient(45deg, #9333ea, #5b21b6);
+  border: none;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #9333ea;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #9333ea, 0 0 40px #5b21b6;
+}
+
+.aura {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(147,51,234,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: auraPulse 6s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes auraPulse {
+  from { transform: scale(1); opacity: 0.6; }
+  to { transform: scale(1.5); opacity: 0.2; }
+}
+
+@keyframes pulse {
+  0%, 100% { text-shadow: 0 0 15px #9333ea, 0 0 30px #5b21b6; }
+  50% { text-shadow: 0 0 30px #9333ea, 0 0 60px #5b21b6; }
+}
+
+/* === DASHBOARD === */
+.dashboard {
+  padding: 3rem 2rem;
+  background: rgba(20, 20, 30, 0.9);
+}
+
+.dashboard h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #a855f7;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.progress-card {
+  background: rgba(30, 30, 50, 0.8);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(147,51,234,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progress-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(147,51,234,0.8);
+}
+
+.progress-bar {
+  height: 12px;
+  background: #2e2e3e;
+  border-radius: 10px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #9333ea, #5b21b6);
+  border-radius: 10px;
+  animation: growBar 1.5s ease-out;
+}
+
+@keyframes growBar {
+  from { width: 0; }
+  to { width: inherit; }
+}
+
+/* === REWARDS PREVIEW === */
+.rewards-preview {
+  padding: 3rem 2rem;
+  background: #0f0f17;
+  text-align: center;
+}
+
+.rewards-preview h2 {
+  color: #a855f7;
+  margin-bottom: 1.5rem;
+}
+
+.reward-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.reward-card {
+  background: rgba(40, 40, 60, 0.8);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  color: #e0e0e0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reward-card.unlocked {
+  border: 2px solid #a855f7;
+  color: #fff;
+}
+
+.reward-card.glow {
+  animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 15px #9333ea, 0 0 30px #5b21b6; }
+  50% { box-shadow: 0 0 30px #9333ea, 0 0 60px #5b21b6; }
+}
+
+.reward-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(147,51,234,0.7);
+}
+
+/* === FOOTER === */
+footer {
+  padding: 1.5rem;
+  background: #0a0a0f;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 2px solid #6419e6;
+}
+
+
+/* === PAGE TRANSITIONS === */
+body.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+body.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
+
+/* === REWARD POPUP === */
+.reward-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(30, 30, 50, 0.95);
+  border: 2px solid #9333ea;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  opacity: 0;
+  z-index: 2000;
+  transition: all 0.5s ease;
+  color: #fff;
+}
+.reward-popup.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 0 20px #9333ea, 0 0 40px #5b21b6;
+}
+.reward-popup h2 {
+  margin-bottom: 0.5rem;
+  color: #a855f7;
+  text-shadow: 0 0 10px #9333ea;
+}
+/* ==== Global Theme ==== */
+body.dark-theme {
+  background: #0e0e14;
+  color: #e4e4f0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Cinzel", serif;
+  letter-spacing: 1px;
+}
+
+/* ==== Navbar ==== */
+.navbar {
+  background: #181822;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #6a00ff;
+}
+
+.navbar .logo {
+  font-size: 1.3rem;
+  color: #caa7ff;
+  font-weight: bold;
+}
+
+.navbar nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: #fff;
+  text-shadow: 0 0 8px #9d6bff;
+}
+
+/* ==== Hero ==== */
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(to bottom, #1a1a27, #0e0e14);
+}
+
+.hero h1 {
+  font-size: 2rem;
+  color: #b48fff;
+}
+
+.hero p {
+  color: #bbb;
+  margin-top: 0.5rem;
+}
+
+/* ==== Captains Grid ==== */
+.captains-grid {
+  padding: 2rem;
+}
+
+.captains-grid h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #d8bfff;
+}
+
+.captains-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.captain-card {
+  background: #191924;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #3c2c54;
+  box-shadow: 0 0 10px rgba(106, 0, 255, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.captain-card h3 {
+  color: #9d6bff;
+  margin-bottom: 0.5rem;
+}
+
+.captain-card .desc {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.8rem;
+}
+
+.captain-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(157, 107, 255, 0.6);
+}
+
+/* ==== Progress Bars ==== */
+.progress-bar {
+  background: #333;
+  border-radius: 6px;
+  height: 14px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #6a00ff, #b48fff);
+  width: 0;
+  animation: fillBar 2s forwards;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #6a00ff;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: inherit; }
+}
+
+/* ==== Final Conquest ==== */
+.ascension {
+  margin: 3rem auto;
+  text-align: center;
+  padding: 2rem;
+  background: radial-gradient(circle at center, rgba(106,0,255,0.2), transparent);
+  border: 2px solid #6a00ff;
+  border-radius: 14px;
+  max-width: 800px;
+  box-shadow: 0 0 25px rgba(106,0,255,0.5);
+  position: relative;
+}
+
+.ascension h2 {
+  font-size: 1.6rem;
+  color: #e4d4ff;
+  margin-bottom: 1rem;
+}
+
+.ascension p {
+  color: #cfcfcf;
+  margin-bottom: 1rem;
+}
+
+.ascension .progress-bar span {
+  background: linear-gradient(90deg, #ff00ff, #6a00ff);
+  box-shadow: 0 0 12px #ff00ff;
+}
+/* ================================
+   Global Reset & Base
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+  transition: background 0.4s ease-in-out;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #00c6ff;
+}
+
+/* ================================
+   Navbar
+================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(20, 20, 20, 0.95);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(8px);
+}
+
+.navbar h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00c6ff;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-links a:hover {
+  background: rgba(0, 198, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ================================
+   Hero Section (Index)
+================================ */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: url('../images/hero-bg.jpg') center/cover no-repeat fixed;
+  color: #fff;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px #00c6ff;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* ================================
+   Captain Cards (captains.html)
+================================ */
+.captains {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.card {
+  background: linear-gradient(145deg, #101010, #181818);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 198, 255, 0.3);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #00c6ff;
+  margin-bottom: 0.8rem;
+}
+
+.card p {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* Glow border effect */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  padding: 2px;
+  background: linear-gradient(45deg, #00c6ff, #ff0080, #00ff95, #ffcc00);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ================================
+   Battle Log (battle-log.html)
+================================ */
+.battle-log {
+  padding: 3rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.log-entry {
+  background: #111;
+  border-left: 5px solid #00c6ff;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+
+.log-entry:hover {
+  transform: translateX(8px);
+}
+
+.log-entry h4 {
+  color: #ffcc00;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.log-entry p {
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+/* ================================
+   Footer
+================================ */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(20, 20, 20, 0.95);
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ================================
+   Animations
+================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ================================
+   Add Log Form (battle-log.html)
+================================ */
+.add-log {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, #101010, #181818);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.add-log h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #00c6ff;
+  text-shadow: 0 0 8px rgba(0, 198, 255, 0.7);
+}
+
+/* Labels */
+.add-log label {
+  display: block;
+  margin: 0.8rem 0 0.4rem;
+  font-weight: 600;
+  color: #ddd;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs & Textarea */
+.add-log input,
+.add-log textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #121212;
+  color: #f5f5f5;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.add-log input:focus,
+.add-log textarea:focus {
+  border: 1px solid #00c6ff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+}
+
+/* Button */
+.add-log .btn {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.5rem;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.add-log .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 198, 255, 0.5);
+}
+
+/* ================================
+   MISSIONS PAGE
+   Tactical Orders from Soul Society
+================================ */
+
+/* Container */
+.missions-container {
+  max-width: 1200px;
+  margin: 6rem auto 3rem auto; /* extra top margin so navbar never overlaps */
+  padding: 2.5rem 2rem; /* more breathing room inside container */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem; /* larger gap prevents hover overlap */
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Mission Card */
+.mission-card {
+  background: linear-gradient(145deg, #101010, #181818);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden; /* contain pseudo glow */
+  isolation: isolate; /* keeps z-index stacking clean */
+  transform-origin: center; /* avoids layout shift */
+  will-change: transform, box-shadow;
+}
+
+.mission-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 198, 255, 0.3);
+}
+
+/* Mission Header */
+.mission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.mission-card h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0, 198, 255, 0.7);
+}
+
+/* Difficulty Badges */
+.difficulty {
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.difficulty.easy {
+  background: rgba(0, 255, 120, 0.15);
+  color: #00ff78;
+  border: 1px solid #00ff78;
+}
+
+.difficulty.medium {
+  background: rgba(255, 170, 0, 0.15);
+  color: #ffaa00;
+  border: 1px solid #ffaa00;
+}
+
+.difficulty.hard {
+  background: rgba(255, 0, 80, 0.15);
+  color: #ff0050;
+  border: 1px solid #ff0050;
+}
+
+/* Mission Description */
+.mission-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Reward */
+.reward {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #00c6ff;
+  text-shadow: 0 0 5px rgba(0, 198, 255, 0.5);
+}
+
+/* Start Button */
+.mission-card .btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.mission-card .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(0, 198, 255, 0.6);
+}
+
+/* Glow Border Animation (ADHD-friendly reward feedback) */
+.mission-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #ff0050, #ffaa00);
+  border-radius: 15px;
+  background-size: 400%;
+  filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 0; /* glow stays inside card */
+}
+.mission-card:hover::before {
+  opacity: 1;
+  animation: glowing-border 10s linear infinite;
+}
+.mission-card * {
+  position: relative;
+  z-index: 1; /* keeps content above glow */
+}
+
+/* Keyframes */
+@keyframes glowing-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================================
+   REWARDS PAGE
+   Soul Reaper Artifacts
+================================ */
+
+.rewards-container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Reward Card */
+.reward-card {
+  background: linear-gradient(145deg, #111, #1b1b1b);
+  border-radius: 18px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.reward-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 198, 255, 0.3);
+}
+
+/* Reward Icon */
+.reward-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+/* Reward Title */
+.reward-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0, 198, 255, 0.6);
+}
+
+/* Reward Description */
+.reward-card p {
+  font-size: 0.95rem;
+  color: #bbb;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Reward Tiers */
+.reward-tier {
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reward-tier.rare {
+  background: rgba(0, 150, 255, 0.15);
+  color: #0096ff;
+  border: 1px solid #0096ff;
+  box-shadow: 0 0 12px rgba(0, 150, 255, 0.6);
+}
+
+.reward-tier.epic {
+  background: rgba(150, 0, 255, 0.15);
+  color: #9b4dff;
+  border: 1px solid #9b4dff;
+  box-shadow: 0 0 15px rgba(155, 77, 255, 0.6);
+}
+
+.reward-tier.legendary {
+  background: rgba(255, 200, 0, 0.15);
+  color: #ffcc00;
+  border: 1px solid #ffcc00;
+  box-shadow: 0 0 18px rgba(255, 200, 0, 0.6);
+}
+
+.reward-tier.mythical {
+  background: rgba(255, 0, 80, 0.15);
+  color: #ff0050;
+  border: 1px solid #ff0050;
+  box-shadow: 0 0 20px rgba(255, 0, 80, 0.8), 0 0 35px rgba(150, 0, 255, 0.6);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================
+   Progress Bars
+   =========================== */
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.1); /* faint bar background */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff); /* glowing blue energy */
+  box-shadow: 0 0 12px rgba(0, 183, 255, 0.7), 0 0 24px rgba(0, 183, 255, 0.5);
+  transition: width 0.8s ease-in-out; /* smooth animation */
+}
+
+/* Optional different styles per captain (if you want uniqueness) */
+#listening-card .progress-bar span {
+  background: linear-gradient(90deg, #6dd5ed, #2193b0);
+  box-shadow: 0 0 12px #00eaff, 0 0 24px #0099ff;
+}
+
+#reading-card .progress-bar span {
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  box-shadow: 0 0 12px #ff6347, 0 0 24px #ff4500;
+}
+
+#writing-card .progress-bar span {
+  background: linear-gradient(90deg, #f7971e, #ffd200);
+  box-shadow: 0 0 12px #ffd700, 0 0 24px #ffa500;
+}
+
+#speaking-card .progress-bar span {
+  background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+  box-shadow: 0 0 12px #c77dff, 0 0 24px #a64dff;
+}
+/* captain image + card adjustments */
+.captain-card {
+  background: linear-gradient(145deg, #111016, #181824);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid rgba(130,80,220,0.12);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.captain-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 0 12px rgba(150,80,255,0.12) inset;
+}
+
+.captain-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.captain-card h3 {
+  margin: 0 0 6px 0;
+  color: #d8bfff;
+}
+
+.captain-card .desc {
+  color: #bdb6d9;
+  margin-bottom: 10px;
+}
+
+/* responsive: stack image above text on narrow screens */
+@media (max-width: 700px) {
+  .captain-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .captain-img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 8px;
+  }
+  .captain-body { width: 100%; }
+}
+/* Background Video */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: blur(6px);
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 0, 25, 0.55);
+  z-index: -1;
+  backdrop-filter: blur(4px);
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(20, 0, 40, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.navbar .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navbar nav a {
+  color: #bbb;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a.active,
+.navbar nav a:hover {
+  color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dark-theme {
+  font-family: 'Roboto', sans-serif;
+  background: #0b0b0f;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+/* Background Video */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -100;
+  filter: brightness(0.3) contrast(1.2);
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+  z-index: -50;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(15,15,25,0.9);
+  border-bottom: 2px solid #4b0082;
+  z-index: 10;
+  position: relative;
+}
+.navbar .logo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.navbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ddd;
+  transition: 0.3s;
+}
+.navbar nav a.active,
+.navbar nav a:hover {
+  color: #fff;
+  border-bottom: 2px solid #4b0082;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  position: relative;
+  z-index: 10;
+}
+.hero-profile {
+  text-align: center;
+  margin-right: 50px;
+}
+.hero-profile .avatar {
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid #8a2be2;
+  margin-bottom: 10px;
+}
+.hero-profile h3 {
+  font-family: 'Cinzel Decorative', serif;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.hero-profile .rank {
+  color: #ffcc00;
+  font-weight: bold;
+}
+.hero-content {
+  max-width: 600px;
+}
+.hero-content h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+.hero-content p {
+  color: #ccc;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.start-btn {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: #fff;
+  transition: 0.3s;
+}
+.start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #2575fc;
+}
+
+/* Progress Grid */
+.dashboard {
+  padding: 40px 80px;
+}
+.dashboard h2 {
+  font-family: 'Cinzel Decorative', serif;
+  margin-bottom: 30px;
+  color: #fff;
+}
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+.progress-card {
+  background: rgba(25, 25, 40, 0.85);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s;
+}
+.progress-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(75,0,130,0.6);
+}
+.progress-card h3 {
+  margin-bottom: 15px;
+  color: #ffcc00;
+}
+.progress-bar {
+  background: #333;
+  border-radius: 6px;
+  height: 16px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #6a11cb, #ffcc00);
+}
+
+
+.reward-card.unlocked {
+  border: 2px solid #6a11cb;
+  box-shadow: 0 0 15px #6a11cb;
+}
+.reward-card.epic {
+  border: 2px solid #ff00ff;
+  box-shadow: 0 0 18px #ff00ff;
+}
+.reward-card.legendary {
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px #ffd700;
+}
+.reward-card:hover {
+  transform: scale(1.05);
+}
+.reward-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: linear-gradient(90deg,#ff512f,#dd2476);
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.reward-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #dd2476;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+/* Responsive */
+@media(max-width:1300px){
+  .hero { flex-direction: column; text-align:center; }
+  .hero-profile { margin-right:0; margin-bottom:20px; }
+  .progress-grid { grid-template-columns: repeat(2, 1fr); }
+  .reward-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width:900px){
+  .progress-grid, .reward-grid { grid-template-columns: 1fr; }
+  .hero-content h1 { font-size: 2rem; }
+  .start-btn, .reward-btn { width: 100%; }
+}
